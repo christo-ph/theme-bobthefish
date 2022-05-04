@@ -1126,6 +1126,26 @@ function __bobthefish_prompt_git -S -a git_root_dir -a real_pwd -d 'Display the 
     end
 end
 
+function __bobthefish_prompt_asdf_node -d 'Dispay active asdf node version' 
+    if [ (asdf current nodejs 2> /dev/null) ]
+        __bobthefish_start_segment $color_node
+        echo -ns $node_glyph (asdf current nodejs | awk -F " " '{print $2}' ) ' '
+        set_color normal
+    end
+end
+
+function __bobthefish_prompt_asdf_elixir -d 'Dispay active asdf elixir version'
+    if [ (asdf current elixir 2> /dev/null) ]
+        __bobthefish_start_segment $color_elixir
+        echo -ns $elixir_glyph (asdf current elixir | awk -F " " '{print $2}' ) ' '
+        set_color normal
+    end
+end
+
+function __bobthefish_prompt_asdf_erlang -d 'Dispay active asdf erlang version'
+    return
+end
+
 function __bobthefish_prompt_dir -S -a real_pwd -d 'Display a shortened form of the current directory'
     __bobthefish_path_segment "$real_pwd"
 end
@@ -1175,6 +1195,9 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
     __bobthefish_prompt_virtualfish
     __bobthefish_prompt_virtualgo
     __bobthefish_prompt_node
+    __bobthefish_prompt_asdf_node
+    __bobthefish_prompt_asdf_elixir
+    __bobthefish_prompt_asdf_erlang
 
     set -l real_pwd (__bobthefish_pwd)
 

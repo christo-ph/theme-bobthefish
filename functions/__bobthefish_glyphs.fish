@@ -23,6 +23,8 @@ function __bobthefish_glyphs -S -d 'Define glyphs used by bobthefish'
   set -x ruby_glyph              ''
   set -x go_glyph                ''
   set -x nix_glyph               ''
+  set -x node_glyph              ''
+  set -x elixir_glyph            ''
 
   # Desk glyphs
   set -x desk_glyph              \u25F2
@@ -72,6 +74,7 @@ function __bobthefish_glyphs -S -d 'Define glyphs used by bobthefish'
     set ruby_glyph       \uE791 ' '
     set go_glyph         \uE626 ' '
     set node_glyph       \uE718 ' '
+    set elixir_glyph     \uE62D ' '
 
     set vagrant_running_glyph  \uF431 # ↑ 'running'
     set vagrant_poweroff_glyph \uF433 # ↓ 'poweroff'
